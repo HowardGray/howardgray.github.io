@@ -5,14 +5,17 @@ layout: default
 
 
         <div class="page">
-  <h1 class="page-title">The name of the Topic goes here</h1>
-  <p class="lead">Here they are. <a href="/">Head back home</a> if you need to.</p>
+  <h1 class="page-title">Sustainability Level 1</h1>
+  <p class="lead">Here they are.
+
+<a href="../topic">back to Topic home</a>
+
 
 <div id="app">
-            <h1>Chapters in this topic:</h1>
+            <h1>Chapters in Sustainability Level 1:</h1>
 
 
-<a href="../episode">View an example Episode</a>
+<a href="../chapter">View an example Chapter</a>
 
 
 
@@ -68,7 +71,7 @@ layout: default
                         var app_key = "keyp5rln1VzhFyTTW";
                         this.items = []
 axios.get(
-                            "https://api.airtable.com/v0/"+app_id+"/Episodes?view=Grid%20view",
+                            "https://api.airtable.com/v0/"+app_id+"/Chapters?view=Grid%20view",
                             { 
                                 headers: { Authorization: "Bearer "+app_key } 
                             }

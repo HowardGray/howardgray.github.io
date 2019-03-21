@@ -6,15 +6,15 @@ layout: default
 
         <div class="page">
   <h1 class="page-title">Sustainability Level 1, Chapter 1, Episode 1</h1>
-  <p class="lead">Here they are. <a href="/">Head back home</a> if you need to.</p>
+  <p class="lead">Here they are.
 
 <a href="../chapter">back to Chapters</a>
 
 <div id="app">
             <h1>In this Episode:</h1>
 
-            <ul>
-                <li v-for="item in items">
+            <ul class="episode-content">
+                <li v-for="item in items" class="episode-content-list">
                    <img :src="item['fields']['Image'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Image']" width="350">
 
                     <h3>{{ item['fields']['Name'] }}</h3>
@@ -25,6 +25,9 @@ layout: default
                 </li>
             </ul>            
         </div><!--app-->
+
+What did you think of this? Contact us.
+
 
 </div>
 
