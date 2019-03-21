@@ -1,0 +1,90 @@
+---
+layout: default
+---
+
+
+
+        <div class="page">
+  <h1 class="page-title">The name of the Topic goes here</h1>
+  <p class="lead">Here they are. <a href="/">Head back home</a> if you need to.</p>
+
+<div id="app">
+            <h1>Levels in this topic:</h1>
+
+<h3>There are a bunch of levels, a bit like Duolingo - basic, intermediate, advanced</h3>
+<a href="../level">View an example Level</a>
+
+
+
+            <ul>
+                <li v-for="item in items">
+
+                   <img :src="item['fields']['Image'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Image']" width="350">
+
+                    <img :src="item['fields']['Image2'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Image2']" width="350">
+
+
+                    <h3>{{ item['fields']['Name'] }}</h3>
+                    <h3>{{ item['fields']['Topic'] }}</h3>
+                    <h3>{{ item['fields']['Episodes'] }}</h3>
+                    <p>{{ item['fields']['Description'] }}</p>
+                    <p>{{ item['fields']['Chapters'] }}</p>
+                    <h3>{{ item['fields']['Difficulty'] }}</h3>
+      
+                   
+                </li>
+            </ul>            
+        </div><!--app-->
+
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2018-12-20T14:53:49-05:00">2018</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+<script type="text/javascript" src="https://unpkg.com/vue"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+
+
+        <!-- Include Dependancy Scripts -->
+        <script type="text/javascript" src="https://unpkg.com/vue"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    items: []
+                },
+                mounted: function(){
+                   this.loadItems(); 
+                },
+                methods: {
+                    loadItems: function(){
+                        
+                        // Init variables
+                        var self = this
+                        var app_id = "appA0hzRA8nSRa1Zj";
+                        var app_key = "keyp5rln1VzhFyTTW";
+                        this.items = []
+axios.get(
+                            "https://api.airtable.com/v0/"+app_id+"/Levels?view=Grid%20view",
+                            { 
+                                headers: { Authorization: "Bearer "+app_key } 
+                            }
+                        ).then(function(response){
+                            self.items = response.data.records
+                        }).catch(function(error){
+                            console.log(error)
+                        })
+                    }
+                }
+            })
+        </script>
+    
+  </body>
+</html>
