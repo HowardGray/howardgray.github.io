@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Some information about us!
 
 ### More Information
 
 Some stuff
 
-### Contact me
+### Contact us
 
-[email@domain.com](mailto:email@domain.com)
+[howard@itsfondo.com](mailto:howard@itsfondo.com)

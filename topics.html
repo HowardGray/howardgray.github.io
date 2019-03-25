@@ -11,9 +11,19 @@ layout: default
 <a href="../topic">View an example</a>
 
 
+{% for item in site.data.airtable %}
+
+<p>{{item.name}}</p>
+<p>{{item.description}}</p>
+{% if  item.attachment %}
+<img src="{{item.attachment[0].url}}" alt={{item.title}} />
+{% endif %}
+{% endfor %}
+
 
 <div id="app">
             <h1>On the menu...</h1>
+
             <ul>
                 <li v-for="item in items">
 
@@ -43,14 +53,10 @@ layout: default
 
       <footer class="footer">
         <small>
-          &copy; <time datetime="2018-12-20T14:53:49-05:00">2018</time>. All rights reserved.
+          &copy; <time datetime="2019-03-23T14:53:49-05:00">2019</time>. All rights reserved.
         </small>
       </footer>
     </div>
-
-<script type="text/javascript" src="https://unpkg.com/vue"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-
 
         <!-- Include Dependancy Scripts -->
         <script type="text/javascript" src="https://unpkg.com/vue"></script>
@@ -70,10 +76,11 @@ layout: default
                         // Init variables
                         var self = this
                         var app_id = "appA0hzRA8nSRa1Zj";
-                        var app_key = "keyp5rln1VzhFyTTW";
+                        var app_key = "keykM2rQu12gpVKps";
                         this.items = []
 axios.get(
-                            "https://api.airtable.com/v0/"+app_id+"/Topics?view=Grid%20view",
+                            "https://api.airtable.com/v0/"+app_id+"/Topics?maxRecords=20&view=Grid%20view",
+
                             { 
                                 headers: { Authorization: "Bearer "+app_key } 
                             }
