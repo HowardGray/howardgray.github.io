@@ -20,7 +20,9 @@ layout: default
                    <img :src="item['fields']['Image'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Image']" width="350">
 
                     <h3>{{ item['fields']['Name'] }}</h3>
+                    <h3>{{ item['fields']['Intro Text'] }}</h3>
                     <h3>{{ item['fields']['URL'] }}</h3>
+                   {{ item['fields']['Creators'] }}
                     <h3>{{ item['fields']['Status'] }}</h3>
                     <p>{{ item['fields']['Description'] }}</p>
                     <p>Coaches: {{ item['fields']['Coaches'] }}</p>
