@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 
 
@@ -19,24 +20,57 @@ layout: default
 
                     <h3>{{ item['fields']['Name'] }}</h3>
                     <h3>{{ item['fields']['Notes'] }}</h3>
-                    <p>{{ item['fields']['Description'] }}</p>
+               
+                <div class="article">
+                    <blockquote>
+                      <p>{{ item['fields']['Description'] }}</p>
+                    </blockquote>
+                </div>
+
+
+     <div class="article">
+                    <blockquote>
+                      <p>Sign up to access this content</p>
+                    </blockquote>
+                </div>
+
                     <p>{{ item['fields']['Topic'] }}</p>
                    
                 </li>
             </ul>            
         </div><!--app-->
 
- <div class="article">
-      <blockquote>
-        Money Crypto believes that censorship resistant store of wealth is paramount. This may seem strange to us living in the U.S., where we trust our banks and governments (for now!), but much of the world doesn’t have that luxury: People suffer from corrupt governments, currency controls preventing people from covering capital, and currency inflation due to government instability. <br /><br />
-        Tech Crypto believes that the internet will only have increasingly more of a say in how power and wealth is distributed, and fixing the incentives (via cryptonetworks) is one of the most important things we can do, along with enabling consumers to own and control their own data.
-      </blockquote>
-    </div>
+ 
 
 What did you think of this? Contact us.
 
 
 </div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = 'https://fondo-content.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
 
       </main>
 
@@ -86,5 +120,6 @@ axios.get(
             })
         </script>
     
+
   </body>
 </html>
