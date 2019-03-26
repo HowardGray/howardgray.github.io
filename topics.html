@@ -4,12 +4,29 @@ layout: default
 
 
 
-        <div class="page">
-  <h1 class="page-title">All Topics on Fondo right now</h1>
-  <p class="lead">Here they are.
+        <div class="page"> 
+  <h1 class="page-title">Ok, so what's this all about then...?</h1>
+ <img src="https://source.unsplash.com/1600x900/?coffee">
 
-<a href="../topic">View an example</a>
+  <p class="lead">Here's a quick explainer. If you've been here already then you know what to do.</p>
 
+
+<p class="citation">
+💡This is a prototype of Fondo to help explain the concept, and provide some examples of functionality & content<br>
+⛴Choose a Topic to get started. You can then choose the level you'd like to start at for that topic.<br>
+<br>
+* Each Topic contains between 1 and 5 modules<br>
+* Each Topic is designed around a learning map. It lets you know what you should explore, in what order, and what is the broader theme you should be thinking about at each step. It also tells you how many weeks the whole thing will take.<br>
+* A Module takes 30-45 minutes to complete<br>
+* Modules are made up of a small number of Episodes, each taking 5-8 minutes
+* Episodes are created from a wide range of content and ideas, all curated by a collective of practitioners alongside the Fondo team<br>
+* As you progress through Modules, we'll provide different content to suit your learning style and goals<br>
+* Each Module is intended to be collaborative; partner up with a Learning Group or a Coach<br>
+* When you've completed a Module, you can add it to your Library and share your progress with others<br><br></p>
+
+<div class="content-callout">
+<a href="../topic">View an example Topic</a>
+</div>
 
 {% for item in site.data.airtable %}
 
@@ -22,8 +39,8 @@ layout: default
 
 
 <div id="app">
-            <h1>On the menu...</h1>
-
+            <h1>You've got access to these Topics...</h1>
+                <p class="citation">For access to all Topics, join as a Premium Member or a Contributor</p>
             <ul>
                 <li v-for="item in items">
 
@@ -35,10 +52,12 @@ layout: default
                    {{ item['fields']['Creators'] }}
                     <h3>{{ item['fields']['Status'] }}</h3>
                     <p>{{ item['fields']['Description'] }}</p>
-                    <p>Coaches: {{ item['fields']['Coaches'] }}</p>
+                    <p class="topic-info">Coaches: {{ item['fields']['Coaches'] }}</p>
                     <p>{{ item['fields']['Chapters'] }}</p>
-                    <p>Contributors: {{ item['fields']['Contributors'] }}</p>
-                    <p>Add your email to get access to this topic [form will go here]</p>
+                    <p class="topic-info">Contributors: {{ item['fields']['Contributors'] }}</p>
+                    <p class="citation">Add your email to get access to this topic [form will go here]</p>
+
+                      <p class="citation">If the topic is marked as Secret, we'll have a Stripe plugin here to give you access for $5</p>
                    
                 </li>
             </ul>     
@@ -54,7 +73,7 @@ layout: default
 
       <footer class="footer">
         <small>
-          &copy; <time datetime="2019-03-23T14:53:49-05:00">2019</time>. All rights reserved.
+          &copy; <time datetime="2019-03-23T14:53:49-05:00">2019 Fondo</time>. All rights reserved.
         </small>
       </footer>
     </div>

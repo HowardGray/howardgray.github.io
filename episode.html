@@ -7,12 +7,23 @@ comments: true
 
         <div class="page">
   <h1 class="page-title">Sustainability Level 1, Chapter 1, Episode 1</h1>
-  <p class="lead">Here they are.
+  <p class="lead">
 
 <a href="../chapter">back to Chapters</a>
+</p>
+
+<h4>Episode Overview</h4>
+
+<div class="episode-overview-message">
+<p>In this episode of Sustainability 101, we get into hear from Nike's marketing VP, and do some other stuff! </p>
+</div>
+
+<h4>Estimated duration for this Episode:</h4><span class="timeframe">10 minutes (yes this is hardcoded)</span>
+
+<h4>Suggested soundtrack for this episode:</h4><span class="timeframe">Howard's Deep in the Jungle playlist</span>
 
 <div id="app">
-            <h1>In this Episode:</h1>
+            <h1>Let's get into it...</h1>
 
             <ul class="episode-content">
                 <li v-for="item in items" class="episode-content-list">
@@ -27,13 +38,6 @@ comments: true
                     </blockquote>
                 </div>
 
-
-     <div class="article">
-                    <blockquote>
-                      <p>Sign up to access this content</p>
-                    </blockquote>
-                </div>
-
                     <p>{{ item['fields']['Topic'] }}</p>
                    
                 </li>
@@ -42,10 +46,18 @@ comments: true
 
  
 
-What did you think of this? Contact us.
 
 
 </div>
+
+<div class="congratulations-message">
+<p>Yo! You're done with this episode. Vibing. Onto the next one? Yes indeed... </p>
+<p>
+What did you think of this? Let us know.</p>
+</div>
+
+
+
 
 <div id="disqus_thread"></div>
 <script>
