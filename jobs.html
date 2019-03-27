@@ -1,0 +1,98 @@
+---
+layout: default
+---
+
+
+
+        <div class="page"> 
+  <h1 class="page-title">Job Explorer</h1>
+ <img src="https://source.unsplash.com/1600x900/?work">
+
+<div class="content-callout">
+<a href="../job">View an example Job</a>
+</div>
+
+{% for item in site.data.airtable %}
+
+<p>{{item.name}}</p>
+<p>{{item.description}}</p>
+{% if  item.attachment %}
+<img src="{{item.attachment[0].url}}" alt={{item.title}} />
+{% endif %}
+{% endfor %}
+
+
+<div id="app">
+            <h1>You've got access to explore these Jobs...</h1>
+                <p class="citation">For access to all Jobs, join as a Premium Member or a Contributor</p>
+            <ul>
+                <li v-for="item in items">
+
+                   <img :src="item['fields']['Image'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Image']" width="350">
+
+                    <h3>{{ item['fields']['Name'] }}</h3>
+                    <h3>{{ item['fields']['Intro Text'] }}</h3>
+                    <h3>{{ item['fields']['URL'] }}</h3>
+                   {{ item['fields']['Creators'] }}
+                    <h3>{{ item['fields']['Status'] }}</h3>
+                    <p>{{ item['fields']['Description'] }}</p>
+
+                      <p class="citation">If the Job is marked as Secret, we'll have a Stripe plugin here to give you access for $5</p>
+                   
+                </li>
+            </ul>     
+
+        </div><!--app-->
+
+
+
+
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2019-03-23T14:53:49-05:00">2019 Fondo</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+        <!-- Include Dependancy Scripts -->
+        <script type="text/javascript" src="https://unpkg.com/vue"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    items: []
+                },
+                mounted: function(){
+                   this.loadItems(); 
+                },
+                methods: {
+                    loadItems: function(){
+                        
+                        // Init variables
+                        var self = this
+                        var app_id = "appA0hzRA8nSRa1Zj";
+                        var app_key = "keykM2rQu12gpVKps";
+                        this.items = []
+axios.get(
+                            "https://api.airtable.com/v0/"+app_id+"/Jobs?maxRecords=20&view=Grid%20view",
+
+                            { 
+                                headers: { Authorization: "Bearer "+app_key } 
+                            }
+                        ).then(function(response){
+                            self.items = response.data.records
+                        }).catch(function(error){
+                            console.log(error)
+                        })
+                    }
+                }
+            })
+        </script>
+    
+  </body>
+</html>
