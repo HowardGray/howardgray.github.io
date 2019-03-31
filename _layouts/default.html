@@ -15,6 +15,10 @@
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
+<!-- Load Vue -->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
@@ -40,6 +44,11 @@
     </div>
 
     <div id="main" role="main" class="container">
+      <nav>
+            <a href="{{ site.baseurl }}/jobs">Jobs</a>
+            <a href="{{ site.baseurl }}/skills">Skills</a>
+          </nav>
+<br>
       {{ content }}
     </div>
 
