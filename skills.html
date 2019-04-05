@@ -5,11 +5,11 @@ layout: default
 
 
         <div class="page"> 
-  <h1 class="page-title">Job Explorer</h1>
- <img src="https://source.unsplash.com/1600x900/?work">
+  <h1 class="page-title">Skills Explorer</h1>
+ <img src="https://source.unsplash.com/1600x900/?skills">
 
 <div class="content-callout">
-<a href="../job">View an example Job</a>
+<a href="../skill">View an example Skill [this is broken!]</a>
 </div>
 
 {% for item in site.data.airtable %}
@@ -23,8 +23,8 @@ layout: default
 
 
 <div id="app">
-            <h1>You've got access to explore these Jobs...</h1>
-                <p class="citation">For access to all Jobs, <a href="../join">join as a Fondo Member or a Contributor</a></p>
+            <h1>You've got access to explore these Skills...</h1>
+                <p class="citation">For access to all Skills, join as a Premium Member or a Contributor</p>
            
             <ul>
                 <li v-for="item in items">
@@ -38,7 +38,7 @@ layout: default
                     <h3>{{ item['fields']['Status'] }}</h3>
                     <p>{{ item['fields']['Description'] }}</p>
 
-                      <p class="citation">If the Job is marked as Secret, we'll have a Stripe plugin here to give you access for $5</p>
+                      <p class="citation">If the Skill is marked as Secret, we'll have a Stripe plugin here to give you access for $5</p>
                    
                 </li>
             </ul>     
@@ -80,7 +80,7 @@ layout: default
                         var app_key = "keykM2rQu12gpVKps";
                         this.items = []
 axios.get(
-                            "https://api.airtable.com/v0/"+app_id+"/Jobs?maxRecords=20&view=Grid%20view",
+                            "https://api.airtable.com/v0/"+app_id+"/Skills?maxRecords=20&view=Grid%20view",
 
                             { 
                                 headers: { Authorization: "Bearer "+app_key } 

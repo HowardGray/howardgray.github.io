@@ -16,7 +16,7 @@ axios.get("https://api.airtable.com/v0/" + app_id +
     ).then(function(response){
         res = response.data.records
         console.log(res)
-        document.write(res[0])
+   //     document.write(res[0])
     })
 
 
@@ -24,24 +24,25 @@ axios.get("https://api.airtable.com/v0/" + app_id +
 
 
 
-
-
-
-
-
 <div class="page"> 
-    <h1 class="page-title">Ok, so what's this all about then...?</h1>
- <img src="https://source.unsplash.com/1600x900/?coffee">
+    <h1 class="page-title">Welcome aboard!</h1>
 
-  <p class="lead">Here's a quick explainer. If you've been here already then you know what to do.</p>
+  <p class="lead">We're so glad to have you here. On this page is a quick explainer, followed by the topic directory. If you've been here already then you know what to do.</p>
 
 
-<p class="citation">
-💡This is a prototype of Fondo to help explain the concept, and provide some examples of functionality & content<br>
-⛴Choose a Topic to get started. You can then choose the level you'd like to start at for that topic.<br>
+<p>Fondo is split into Topics, Jobs and Skills<p>
+<p>Topics are larger areas. They probably cover several Skills and relate to many different Jobs. Each Topic has been broken down into bitesize sections.</p>
+<p>Some Topics aren't yet available to view or are restricted to members only. To apply for access, you can <a href="../join">join</a> the Fondo community</p>
+
+
+
+
+Need to know more? Visit the <a href="../about">about</a> page<br><br>
+
+
 <br>
-* Each Topic contains between 1 and 5 modules<br>
-* Each Topic is designed around a learning map. It lets you know what you should explore, in what order, and what is the broader theme you should be thinking about at each step. It also tells you how many weeks the whole thing will take.<br>
+💡 Each Topic contains between 1 and 5 modules<br>
+⛴ Each Topic is designed around a learning map. It lets you know what you should explore, in what order, and what is the broader theme you should be thinking about at each step. It also tells you how many weeks the whole thing will take.<br>
 * A Module takes 30-45 minutes to complete<br>
 * Modules are made up of a small number of Episodes, each taking 5-8 minutes
 * Episodes are created from a wide range of content and ideas, all curated by a collective of practitioners alongside the Fondo team<br>
@@ -65,7 +66,7 @@ axios.get("https://api.airtable.com/v0/" + app_id +
                 <p>{{ items }}</p>
            
             <ul>
-                <div v-for="item in items">
+                <li v-for="item in items">
 
                     <img :src="item['fields']['Image'][0]['thumbnails']['large']['url']" alt="" v-if="item['fields']['Image']" width="350">
 
@@ -79,17 +80,20 @@ axios.get("https://api.airtable.com/v0/" + app_id +
                     Coaches: {{ item['fields']['Coaches'] }}
                     {{ item['fields']['Chapters'] }}
                     Contributors: {{ item['fields']['Contributors'] }}
-                    <p>Add your email to get access to this topic [form will go here]</p>
-
-                    <p class="citation">If the topic is marked as Secret, we'll have a Stripe plugin here to give you access for $5</p>
+                   <br><br>
+                 <p class="citation">To access this topic, <a href="../join">join the community</a></p>
+                    <p class="citation">If the topic is marked as Secret, we may have a Stripe plugin here to give you access for $5</p>
                    
-                </div>
+                </li>
             </ul>  
  
 
         </div><!--app-->
 
 
+<script>
+    document.write(res[0]["fields"]["item"])
+</script>
 
 </div>
 
